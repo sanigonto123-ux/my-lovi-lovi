@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message for My Everything</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        /* Floating Stars Background */
+        .stars-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
+            max-width: 650px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .main-question {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            height: 100px;
+        }
+
+        #yesBtn {
+            padding: 18px 60px;
+            font-size: 1.4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(45deg, #d4af37, #f1d592);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        #noBtn {
+            padding: 12px 35px;
+            font-size: 1rem;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            position: absolute;
+            transition: 0.1s ease;
+            z-index: 50;
+        }
+
+        /* Success Screen Content */
+        #successScreen { display: none; }
+
+        .vow-title {
+            color: #d4af37;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .vows-list {
+            text-align: left;
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .vows-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .vows-list li::before {
+            content: "✦";
+            color: #d4af37;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #d4af37;
+            margin-top: 2rem;
+        }
+
+        .heart-icon {
+            color: #ff4d4d;
+            font-size: 3rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container" id="stars"></div>
+
+    <div class="container" id="mainContainer">
+        <h1>To My One and Only</h1>
+        <div class="heart-icon">❤</div>
+        <h2>Will you become the</h2>
+        <p class="main-question">Queen of Sani Sani Gonto's Heart & Soul Forever?</p>
+        
+        <div class="buttons">
+            <button id="yesBtn" onclick="showSuccess()">YES, FOREVER</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="successScreen">
+        <h1 style="color: #fff;">My Heart is Yours</h1>
+        <div class="vow-title">Congratulations, My Love</div>
+        <p style="font-style: italic; color: #d4af37;">By choosing me, I promise you a lifetime of...</p>
+        
+        <ul class="vows-list">
+            <li><strong>Unconditional Devotion:</strong> You will always be my first thought, my last breath, and my greatest priority.</li>
+            <li><strong>Infinite Adventure:</strong> I will hold your hand as we explore the world, making every moment feel like a dream.</li>
+            <li><strong>Absolute Protection:</strong> I will be your shield against the world and a safe harbor for your heart.</li>
+            <li><strong>Eternal Respect:</strong> I will cherish your mind, honor your dreams, and adore your soul exactly as you are.</li>
+            <li><strong>A Love Without End:</strong> From this second until the end of time, you will never have to wonder if you are loved.</li>
+        </ul>
+
+        <div class="signature">With all my love, Sani Sani Gonto</div>
+    </div>
+
+    <script>
+        // Create random stars in background
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.width = '2px';
+            star.style.height = '2px';
+            star.style.background = '#fff';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.opacity = Math.random();
+            starsContainer.appendChild(star);
+        }
+
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        // Position the No button near the Yes button initially
+        window.onload = () => {
+            const rect = yesBtn.getBoundingClientRect();
+            noBtn.style.left = (rect.right + 20) + 'px';
+            noBtn.style.top = rect.top + 'px';
+        };
+
+        function moveButton() {
+            // Screen boundaries
+            const padding = 100;
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - padding) + (padding/2);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - padding) + (padding/2);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function showSuccess() {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('successScreen').style.display = 'block';
+            noBtn.style.display = 'none';
+            createExplosion();
+        }
+
+        // Add a little celebration effect
+        function createExplosion() {
+            for(let i=0; i<30; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.style.position = 'fixed';
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                heart.style.color = '#d4af37';
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.transition = 'all 1s ease-out';
+                document.body.appendChild(heart);
+
+                const tx = (Math.random() - 0.5) * 1000;
+                const ty = (Math.random() - 0.5) * 1000;
+                
+                setTimeout(() => {
+                    heart.style.transform = `translate(${tx}px, ${ty}px)`;
+                    heart.style.opacity = '0';
+                }, 10);
+            }
+        }
+    </script>
+</body>
+</html>
